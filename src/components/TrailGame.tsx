@@ -135,13 +135,17 @@ export const TrailGame: React.FC<TrailGameProps> = ({ level, onComplete, onReset
         </div>
 
         {/* Lines */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none">
+        <svg 
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
           {linePoints.length > 1 && (
             <motion.path
-              d={`M ${linePoints.map(p => `${p.x}%,${p.y}%`).join(' L ')}`}
+              d={`M ${linePoints.map(p => `${p.x},${p.y}`).join(' L ')}`}
               fill="none"
               stroke="#FF6B6B"
-              strokeWidth="6"
+              strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={{ pathLength: 0 }}
@@ -232,9 +236,9 @@ export const TrailGame: React.FC<TrailGameProps> = ({ level, onComplete, onReset
 
       <style>{`
         @keyframes shake {
-          0%, 100% { transform: translate(-50%, -50%) translateX(0); }
-          25% { transform: translate(-50%, -50%) translateX(-5px); }
-          75% { transform: translate(-50%, -50%) translateX(5px); }
+          0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+          25% { transform: translate(-50%, -50%) rotate(-5deg); }
+          75% { transform: translate(-50%, -50%) rotate(5deg); }
         }
         .animate-shake {
           animation: shake 0.2s ease-in-out infinite;
