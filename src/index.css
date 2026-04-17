@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --color-bg: #FFF9E6;
+  --color-primary: #FF6B6B;
+  --color-secondary: #4ECDC4;
+  --color-accent: #FFE66D;
+  --color-ink: #2C3E50;
+  --shadow-vibrant: 0 8px 0 rgba(0,0,0,0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-ink;
+    background-image: none;
+  }
+}
+
+@layer components {
+  .vibrant-border {
+    border-width: 4px;
+    border-color: var(--color-ink);
+  }
+  
+  .vibrant-card {
+    background-color: white;
+    border-width: 4px;
+    border-color: var(--color-ink);
+    border-radius: 30px;
+    box-shadow: var(--shadow-vibrant);
+  }
+
+  .btn-vibrant-primary {
+    @apply px-8 py-4 text-white rounded-2xl font-black text-xl flex items-center gap-3 transition-all;
+    background-color: var(--color-primary);
+    border-width: 4px;
+    border-color: var(--color-ink);
+    box-shadow: var(--shadow-vibrant);
+  }
+
+  .btn-vibrant-primary:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-vibrant-primary:active {
+    transform: scale(0.95);
+  }
+
+  .btn-vibrant-secondary {
+    @apply px-6 py-3 rounded-xl font-bold transition-all;
+    background-color: var(--color-secondary);
+    color: var(--color-ink);
+    border-width: 3px;
+    border-color: var(--color-ink);
+    box-shadow: var(--shadow-vibrant);
+  }
+
+  .btn-vibrant-secondary:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-vibrant-secondary:active {
+    transform: scale(0.95);
+  }
+}
